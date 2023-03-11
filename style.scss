@@ -1,0 +1,350 @@
+@import url("https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Poppins:wght@300;400;600;700;900&display=swap");
+// base css
+* {
+  font-family: Poppins;
+}
+// variables
+$padding: 5rem;
+// variables
+a {
+  color: white;
+}
+body {
+  font-size: 1.6rem;
+}
+main {
+  background-color: black;
+  color: white;
+}
+// base css end
+// header wrapper
+.navbar-wrapper {
+  background-color: black;
+  height: 6rem;
+  width: 100%;
+  color: white;
+  position: sticky;
+  top: 0;
+  // logo
+  .logo {
+    color: rgb(255, 70, 70);
+  }
+  // navbar section
+  .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    padding: 0 5rem;
+    margin: 0 auto;
+  }
+  // menu navigation
+  .menu__wrapper ul {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    // active page
+    .active {
+      font-weight: bold;
+    }
+    // hover text
+    li:hover {
+      font-weight: bold;
+    }
+  }
+
+  // profile section
+  .profile__wrapper {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    // profile image
+    & img {
+      width: 3.2rem;
+      height: 3.2rem;
+      object-fit: cover;
+      border-radius: 9999px;
+    }
+    .profile__nav {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      line-height: 1;
+    }
+    .dark-mode {
+      background-color: white;
+      width: 5rem;
+      height: 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      column-gap: 0.5rem;
+      border-radius: 9999px;
+      position: relative;
+    }
+    .toggle--icon {
+      color: goldenrod;
+      font-size: 1.7rem;
+    }
+    .toggle__ball {
+      border-radius: 99999px;
+      background-color: black;
+      width: 50%;
+      height: 100%;
+      cursor: pointer;
+      position: absolute;
+      right: 0;
+    }
+  }
+}
+// left navbar section
+.left-navbar {
+  background-color: black;
+  color: white;
+  height: 100vh;
+  width: 5rem;
+  padding-top: 6.5rem;
+  position: fixed;
+  top: 0;
+  // left navbar inside items
+  & nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3.5rem;
+    // icons
+    & i {
+      cursor: pointer;
+      font-size: 1.9rem;
+    }
+  }
+}
+// hero section
+.hero-wrapper {
+  margin-left: 5rem;
+}
+.hero__section {
+  width: 100%;
+  height: calc(100vh - 6rem);
+  padding: $padding;
+  background: url(/img/spiderman.jpg) no-repeat;
+  background-size: 100%;
+  animation: zoom 20s ease infinite;
+  @keyframes zoom {
+    to {
+      background-size: 100%;
+    }
+    75% {
+      background-size: 120%;
+    }
+  }
+  // spiderman logo img
+  & img {
+    width: 30%;
+    margin-bottom: 3rem;
+  }
+  // film desc
+  & p {
+    background-color: rgba(255, 228, 196, 0.597);
+    border-radius: 5px;
+    padding: 1rem;
+    width: 55rem;
+    font-size: 1.5rem;
+    color: rgb(36, 36, 36);
+    margin-bottom: 3rem;
+  }
+  // buttons
+  & .btns {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    // oynat button
+    & .btn__play {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      border: none;
+      padding: 1rem 2rem;
+      border-radius: 0.5rem;
+      background-color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+    // daha fazla bilgi button
+    & .btn__more {
+      @extend .btn__play;
+      background-color: rgba(66, 66, 66, 0.656);
+      color: white;
+      padding: 1rem 3rem;
+      font-weight: 500;
+    }
+  }
+}
+// movie list section
+
+.movie-list-wrapper {
+  margin-left: 5rem;
+
+  .movie__list {
+    position: relative;
+
+    .arrow {
+      width: 100%;
+      display: flex;
+      font-size: 5rem;
+      position: absolute;
+      right: -135rem;
+      top: 8rem;
+      opacity: 0.6;
+      transition: opacity 0.5s ease;
+      cursor: pointer;
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+
+  // movie list filter
+  .movie__list__filter {
+    margin: 2rem 0;
+    padding: 2rem 2rem 2rem 5rem;
+    // select input
+    select {
+      background-color: black;
+      color: white;
+      padding: 0.5rem 1rem;
+      margin-bottom: 1rem;
+    }
+  }
+  // movie list filter end
+
+  // movie main container start
+  .movie-list-content {
+    padding: 0 5rem;
+    overflow: hidden;
+    // movie list title
+    & h1 {
+      font-size: 2.8rem;
+      margin: 2rem 0;
+    }
+
+    // movie list items flex layout
+    & .movie__list__items {
+      width: max-content;
+      display: flex;
+      align-items: center;
+      column-gap: 2rem;
+      margin-bottom: 8rem;
+      transform: translateX(0);
+      transition: all 1s ease;
+    }
+
+    // movie list item
+    & .movie__list__item {
+      flex-shrink: 0;
+      position: relative;
+      transition: 0.8s ease;
+
+      // if hover - info opacity 1
+      &:hover .movie__list__info {
+        opacity: 1;
+      }
+      // hover effect -scale
+      &:hover {
+        transform: scale(1.2);
+        margin: 2rem 2.5rem;
+      }
+      &:hover img {
+        opacity: 0.5;
+      }
+
+      // movie container img
+      &.movie__list__item img {
+        width: 26rem;
+        height: 20rem;
+        object-fit: cover;
+        border-radius: 10px;
+        transition: opacity 1s ease;
+      }
+
+      // movie container info box
+      .movie__list__info {
+        display: grid;
+        place-items: center;
+        position: absolute;
+        top: 5rem;
+        transform: translate(50%);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+
+        // movie name
+        & .movie__name {
+          font-size: 2.4rem;
+          background-color: rgba(79, 79, 79, 0.549);
+          border-radius: 5px;
+          padding: 0.3rem;
+          font-weight: 200;
+        }
+        // movie buttons
+        & .movie__btns {
+          padding: 0.8rem;
+          background-color: rgba(79, 79, 79, 0.549);
+          border-radius: 5px;
+          margin-top: 3rem;
+          display: flex;
+          gap: 1rem;
+          justify-content: center;
+          align-items: center;
+          & i {
+            font-size: 1.8rem;
+            cursor: pointer;
+            opacity: 0.5;
+            transition: opacity 0.5s ease, font-size 0.5s ease;
+            &:hover {
+              opacity: 1;
+              font-size: 2rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// media queries
+@media screen and (max-width: 768px) {
+  .menu__wrapper {
+    display: none;
+  }
+  .hero__section img {
+    width: 30vh;
+  }
+  .hero__section {
+    animation: none;
+    background-size: cover;
+    background-position: -50px;
+  }
+  .hero__section p {
+    width: 30rem;
+    font-size: 1.3rem;
+  }
+  .movie-list-wrapper .movie-list-content .movie__list__items {
+    width: 80rem;
+    flex-wrap: wrap;
+  }
+  .movie__list .arrow {
+    display: none;
+  }
+  .movie-list-wrapper .movie-list-content .movie__list__item .movie__list__info {
+    top: 0;
+    left: 0;
+    bottom: 0;
+    transform: translate(0);
+    width: 100%;
+  }
+}
