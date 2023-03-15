@@ -1,5 +1,5 @@
 # Film Site Project
-(./design/picture.png)
+![Design preview for film site project](./design/picture.png)
 
 ## Welcome! 👋
 
